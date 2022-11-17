@@ -1,0 +1,22 @@
+//https://leetcode.com/problems/squares-of-a-sorted-array/?envType=study-plan&id=algorithm-i
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var sortedSquares = function(nums) {
+    let left = 0;
+    let right = nums.length -1;
+    const result = [];
+    while(left <= right) {
+        const num1 = nums[left]
+        const num2 = nums[right]
+        if(Math.abs(num1) > Math.abs(num2)) {
+            result.unshift(num1 * num1)
+            left++
+        }else {
+            result.unshift(num2 * num2)
+            right--
+        }
+    }
+     return result;
+};
