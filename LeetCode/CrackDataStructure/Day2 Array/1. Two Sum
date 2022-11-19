@@ -1,0 +1,18 @@
+//https://leetcode.com/problems/two-sum/?envType=study-plan&id=data-structure-i
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function(nums, target) {
+    const obj = {};
+
+    for(let i = 0; i < nums.length; ++i) {
+        let num = nums[i];
+        let diff = target - nums[i];
+
+        if(diff in obj)  return [i,obj[diff]];
+
+        obj[num] = i;
+    }
+};
