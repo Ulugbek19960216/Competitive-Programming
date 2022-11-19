@@ -1,0 +1,23 @@
+//https://leetcode.com/problems/best-time-to-buy-and-sell-stock/submissions/846342488/
+/**
+ * @param {number[]} prices
+ * @return {number}
+ */
+var maxProfit = function(prices) {
+    let min = Infinity;
+    let max = 0;
+    let size = prices.length;
+
+    for(let i = 0; i < size; ++i) {
+        if(min > prices[i]) {
+             min = prices[i];
+        }
+        let maxCheck = prices[i] - min;
+        if(max < maxCheck) {
+            max = maxCheck
+        }
+    }
+   
+   return max;
+    
+};
