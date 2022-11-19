@@ -1,0 +1,23 @@
+//https://leetcode.com/problems/intersection-of-two-arrays-ii/description/
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number[]}
+ */
+var intersect = function(nums1, nums2) {
+    let arr1 = nums1.sort((a, b) => b-a);
+    let arr2 = nums2.sort((a, b) => b-a);
+    const result = [];
+
+    while( arr1.length && arr2.length) {
+        if(arr1[arr1.length - 1] == arr2[arr2.length -1]) {
+            result.push(nums1.pop());
+            nums2.pop();
+        } else if(arr1[arr1.length - 1] > arr2[arr2.length -1]) {
+            nums2.pop();
+        } else {
+            nums1.pop();
+        }
+    }
+    return result;
+};
