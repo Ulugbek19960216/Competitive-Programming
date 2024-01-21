@@ -1,0 +1,23 @@
+// https://leetcode.com/problems/house-robber/submissions/1152897437?envType=daily-question&envId=2024-01-21
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+
+var rob = function(nums) {
+
+    let n = nums.length;
+    if(n === 0) return 0;
+    let maxAtTwoBefore = 0;
+    let maxAtOneBefore = 0;
+    
+    for (let i = 0; i < n; i++) { 
+        const maxAtCurrent = Math.max(nums[i] + maxAtTwoBefore, maxAtOneBefore);
+        maxAtTwoBefore = maxAtOneBefore;
+        maxAtOneBefore = maxAtCurrent;
+    }
+
+    return maxAtOneBefore;
+   
+};
