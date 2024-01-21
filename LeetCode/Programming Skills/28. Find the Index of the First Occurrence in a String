@@ -1,0 +1,21 @@
+// https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/submissions/1152987206?envType=study-plan-v2&envId=programming-skills
+
+
+/**
+ * @param {string} haystack
+ * @param {string} needle
+ * @return {number}
+ */
+var strStr = function (haystack, needle) {
+    let hSize = haystack.length;
+    let nSize = needle.length;
+    if (nSize <= 0) return -1;
+
+    for (let i = 0; i < hSize; ++i) {
+        if (haystack.slice(i, i + nSize) === needle) {
+            return i;
+        }
+    }
+
+    return -1;
+};
