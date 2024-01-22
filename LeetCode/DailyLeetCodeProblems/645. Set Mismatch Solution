@@ -1,0 +1,22 @@
+// https://leetcode.com/problems/set-mismatch/submissions/1153549070?envType=daily-question&envId=2024-01-22
+
+
+var findErrorNums = function(nums) {
+
+    let n = nums.length;
+    let sum = (n * (n + 1)) / 2;
+    let arr = Array(n).fill(0);
+    let dup = 0;
+
+    for(let i = 0; i < n; ++i) {
+        if (arr[nums[i] -1] === nums[i]) {
+            dup = nums[i];
+        } else {
+            arr[nums[i] -1] = nums[i];
+            sum -= nums[i];
+        }
+    }
+     
+    
+    return [dup, sum];
+};
