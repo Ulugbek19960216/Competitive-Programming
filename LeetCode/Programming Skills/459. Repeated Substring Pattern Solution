@@ -1,0 +1,11 @@
+// https://leetcode.com/problems/repeated-substring-pattern/submissions/1158343386?envType=study-plan-v2&envId=programming-skills
+
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var repeatedSubstringPattern = function(s) {
+    
+    return s.repeat(2).slice(1, -1).includes(s);
+
+};
