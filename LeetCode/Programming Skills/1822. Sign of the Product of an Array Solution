@@ -1,0 +1,21 @@
+//https://leetcode.com/problems/sign-of-the-product-of-an-array/submissions/1159330517?envType=study-plan-v2&envId=programming-skills
+// Solution without multiply
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var arraySign = function(nums) {
+    let ans = 1;
+
+    for(e of nums) {
+        if(e == 0) {
+            return 0;
+        }
+
+        if(e < 0) {
+            ans = -ans
+        }
+    }
+
+    return ans;
+};
