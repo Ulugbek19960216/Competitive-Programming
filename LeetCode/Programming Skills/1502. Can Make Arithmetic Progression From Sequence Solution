@@ -1,0 +1,19 @@
+// https://leetcode.com/problems/can-make-arithmetic-progression-from-sequence/submissions/1159359422?envType=study-plan-v2&envId=programming-skills
+
+/**
+ * @param {number[]} arr
+ * @return {boolean}
+ */
+var canMakeArithmeticProgression = function(arr) {
+    arr.sort((a, b) => a - b);
+    let n = arr.length;
+    let commonDiff = arr[1] - arr[0];
+
+    for(let i = 2; i < n; ++i) {
+        if(arr[i] - arr[i-1] !== commonDiff) {
+            return false;
+        }
+    }
+
+    return true;
+};
