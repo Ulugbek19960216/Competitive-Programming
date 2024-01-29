@@ -1,0 +1,27 @@
+// https://leetcode.com/problems/monotonic-array/submissions/1160390460?envType=study-plan-v2&envId=programming-skills
+
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+var isMonotonic = function(nums) {
+    let increasing = true;
+    let decreasing = true;
+    let n = nums.length;
+
+    for(let i = 1; i < n; ++i) {
+        if(nums[i] > nums[i-1]) {
+            decreasing = false;
+        } else if (nums[i] < nums[i-1]) {
+            increasing = false;
+        }
+
+        if(!increasing && !decreasing) {
+        return false;
+    }
+    }
+
+    
+
+    return true;
+};
