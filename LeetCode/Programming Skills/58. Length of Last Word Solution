@@ -1,0 +1,21 @@
+// https://leetcode.com/problems/length-of-last-word/submissions/1161244423?envType=study-plan-v2&envId=programming-skills 
+
+
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLastWord = function(s) {
+    let count = 0;
+    let txt = s.trim();
+    let n = txt.length;
+    
+    for(let i = n-1; i >= 0; --i) {
+        if(txt[i] === " ") {
+            return count;
+        }
+        count++;
+    }
+
+    return count;
+};
