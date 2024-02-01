@@ -1,0 +1,16 @@
+//https://leetcode.com/problems/to-lower-case/submissions/1162861755?envType=study-plan-v2&envId=programming-skills
+
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var toLowerCase = function(s) {
+    let result = "";
+
+    for(let ch of s) {
+        let asCode = ch.charCodeAt();
+        result += asCode >= 65 && asCode <= 90 ? String.fromCharCode(asCode + 32) : ch;
+    }
+    return result;
+
+};
