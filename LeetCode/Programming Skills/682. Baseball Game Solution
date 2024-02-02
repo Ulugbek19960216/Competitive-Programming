@@ -1,0 +1,29 @@
+// https://leetcode.com/problems/baseball-game/submissions/1163861863?envType=study-plan-v2&envId=programming-skills
+
+/**
+ * @param {string[]} operations
+ * @return {number}
+ */
+var calPoints = function(operations) {
+    const stack = [];
+   
+
+    for(let ch of operations) {
+        if(operations.length === 1 && ch === "0") {
+            return 0;
+        }
+        if(ch === "C") {
+            stack.pop();
+        } else if (ch === "D") {
+            stack.push(stack[stack.length -1] * 2);
+        } else if (ch === "+" ) {
+            stack.push( stack[stack.length -1] + stack[stack.length -2] );
+        } else {
+             stack.push(parseInt(ch));
+        }
+    }
+
+    return stack.reduce((acc, currentVal) => acc + currentVal, 0) ;
+  
+    
+};
