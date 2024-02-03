@@ -1,0 +1,36 @@
+// https://leetcode.com/problems/find-winner-on-a-tic-tac-toe-game/submissions/1165139624?envType=study-plan-v2&envId=programming-skills
+
+/**
+ * @param {number[][]} moves
+ * @return {string}
+ */
+var tictactoe = function(moves) {
+    let rows = [0, 0, 0], cols = [0, 0, 0], diagnal = 0, antiDiagnal = 0, count = 0;
+
+    for(let [row, col] of moves) {
+
+        let value = (count % 2 === 0) ? 1 : -1;
+        rows[row] += value;
+        cols[col] += value;
+
+        if (row + col === 2) {
+            antiDiagnal += value;
+        }
+
+        if(row === col) {
+            diagnal += value;
+        }
+
+        if([rows[row], cols[col], antiDiagnal, diagnal].includes(3)) {
+            return "A"
+        } else if ([rows[row], cols[col], antiDiagnal, diagnal].includes(-3)) {
+            return "B"
+        }
+        count++;
+    }
+    if(count < 9) {
+        return "Pending"
+    }
+
+    return "Draw";
+};
