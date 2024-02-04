@@ -1,0 +1,30 @@
+// https://leetcode.com/problems/robot-bounded-in-circle/submissions/1166197460?envType=study-plan-v2&envId=programming-skills
+
+/**
+ * @param {string} instructions
+ * @return {boolean}
+ */
+var isRobotBounded = function(instructions) {
+  const dirs = [[0, 1], [1, 0], [0, -1], [-1, 0]];
+  let head = 0;
+  let x = 0;
+  let y = 0;
+
+
+  for (const instruction of instructions) {
+      
+      if (instruction === "G") {
+          x = x + dirs[head][0];
+          y = y + dirs[head][1];
+      } else if (instruction === "L") {
+          head = (4 + head - 1) % 4;
+      } else {
+          head = ( 4 + head + 1) % 4;
+      }
+  }  
+
+  const isOrigin = (x === 0 && y === 0);
+  const isHeadingNorth = head === 0
+
+  return isOrigin || (! isHeadingNorth);
+};
