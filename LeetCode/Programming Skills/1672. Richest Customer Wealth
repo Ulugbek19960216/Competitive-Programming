@@ -1,0 +1,25 @@
+// https://leetcode.com/problems/richest-customer-wealth/submissions/1166927768?envType=study-plan-v2&envId=programming-skills
+/**
+ * @param {number[][]} accounts
+ * @return {number}
+ */
+var maximumWealth = function(accounts) {
+    // loop through matrix, calculate each customer sum,  find max sum , return maxSum
+    let n = accounts.length;
+    let maxSum = 0;
+
+    for (let i = 0; i < n; ++i) {
+        let sum = 0;
+        for(let j = 0; j < accounts[i].length; ++j) {
+         let num = accounts[i][j];
+         sum += num;
+         if(sum > maxSum) {
+             maxSum = sum;
+         }
+        }
+         
+    }
+
+    return maxSum;
+   
+};
