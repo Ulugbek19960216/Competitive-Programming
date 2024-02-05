@@ -1,0 +1,30 @@
+//https://leetcode.com/problems/matrix-diagonal-sum/submissions/1167026760?envType=study-plan-v2&envId=programming-skills
+
+
+
+/**
+ * @param {number[][]} mat
+ * @return {number}
+ */
+var diagonalSum = function(mat) {
+    let  ans = 0;
+    let n = mat.length;
+    let mid = Math.floor( n / 2);
+
+    for(let i = 0; i < n; ++i) {
+        // diagonal
+        ans += mat[i][i];
+        // antiDiagonal
+        ans += mat[n-1-i][i];
+    }
+
+     if(n % 2 == 1) {
+        ans -= mat[mid][mid];
+     } 
+    return ans;
+    
+};
+
+
+
+ 
