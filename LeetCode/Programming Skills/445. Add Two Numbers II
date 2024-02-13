@@ -1,0 +1,57 @@
+// https://leetcode.com/problems/add-two-numbers-ii/submissions/1174615837
+
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} l1
+ * @param {ListNode} l2
+ * @return {ListNode}
+ */
+ 
+const addTwoNumbers = function(l1, l2) {
+  let rev1 = reverseLinkedList(l1);
+  let rev2 = reverseLinkedList(l2);
+  
+  let carry = 0;
+  let result = null;
+  
+  while (rev1 !== null || rev2 !== null || carry !== 0) {
+    let sum = carry;
+    if (rev1 !== null) {
+      sum += rev1.val;
+      rev1 = rev1.next;
+    }
+    if (rev2 !== null) {
+      sum += rev2.val;
+      rev2 = rev2.next;
+    }
+    
+    carry = Math.floor(sum / 10);
+    sum %= 10;
+    
+    let newNode = new ListNode(sum);
+    newNode.next = result;
+    result = newNode;
+  }
+  
+  return result;
+};
+
+const reverseLinkedList = function(head) {
+  let prev = null;
+  let curr = head;
+  
+  while (curr !== null) {
+    let next = curr.next;
+    curr.next = prev;
+    prev = curr;
+    curr = next;
+  }
+  
+  return prev;
+};
