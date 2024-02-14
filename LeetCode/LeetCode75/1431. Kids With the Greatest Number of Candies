@@ -1,0 +1,20 @@
+// https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/submissions/1175515854?envType=study-plan-v2&envId=leetcode-75
+
+/**
+ * @param {number[]} candies
+ * @param {number} extraCandies
+ * @return {boolean[]}
+ */
+var kidsWithCandies = function(candies, extraCandies) {
+
+    let n = candies.length;
+    const result = [];
+    let max = Math.max(...candies);
+
+    for(let i = 0; i < n; ++i) {
+        result.push(candies[i] + extraCandies >= max);
+    }
+
+    return result;
+   
+};
