@@ -1,0 +1,19 @@
+// https://leetcode.com/problems/is-subsequence/submissions/1178258786?envType=study-plan-v2&envId=leetcode-75
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+var isSubsequence = function(s, t) {
+    let sIdx = 0;
+    let tIdx = 0;
+
+    while (sIdx < s.length && tIdx < t.length) {
+        if (s[sIdx] === t[tIdx]) {
+            sIdx++;
+        }
+        tIdx++;
+    }
+
+    return sIdx === s.length;    
+};
