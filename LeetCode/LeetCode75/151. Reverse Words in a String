@@ -1,0 +1,19 @@
+// https://leetcode.com/problems/reverse-words-in-a-string/submissions/1181383938?envType=study-plan-v2&envId=leetcode-75
+
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var reverseWords = function(s) {
+    let txt = s.trim();
+    let result = "";
+    let word = txt.split(/\s+/);
+
+    for(let i = word.length-1; i > 0; --i) {
+        result += word[i] + " ";
+    }
+
+    result += word[0];
+
+    return result;
+};
