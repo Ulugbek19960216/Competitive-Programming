@@ -1,0 +1,25 @@
+// https://leetcode.com/problems/product-of-array-except-self/submissions/1184135452
+
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var productExceptSelf = function(nums) {
+    let n = nums.length;
+    let arr = new Array(nums.length).fill(1);
+    let prefix = 1;
+    let postfix = 1;
+
+
+    for(let i = 0; i < n; ++i) {
+       arr[i] = prefix;
+       prefix *= nums[i];
+    }
+    
+    for(let j = n -1; j >= 0; --j) {
+        arr[j] *= postfix;
+        postfix *= nums[j];
+    }
+    
+    return arr;
+};
