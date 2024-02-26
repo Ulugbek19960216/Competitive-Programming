@@ -1,0 +1,29 @@
+// https://leetcode.com/problems/max-number-of-k-sum-pairs/submissions/1187119863?envType=study-plan-v2&envId=leetcode-75
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+
+var maxOperations = function(nums, k) {
+    let operations = 0;
+    let left = 0;
+    let right = nums.length -1 ;
+    nums.sort((a,b) => a - b);
+
+    while(left < right) {
+        let sum = nums[left] + nums[right];
+        if(sum < k) {
+          left++;
+        } else if (sum > k) {
+            right--;
+        } else {
+            operations++;
+            left++;
+            right--;
+        }
+    }
+
+
+    return operations;
+};
