@@ -1,0 +1,30 @@
+// https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/submissions/1194929315?envType=study-plan-v2&envId=leetcode-75
+
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var deleteMiddle = function(head) {
+    if(head === null) return null;
+
+    let prev = new ListNode(0);
+    prev.next = head;
+    let slow = prev;
+    let fast = head;
+
+    while(fast && fast.next) {
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+
+    slow.next = slow.next.next;
+
+    return prev.next ;
+};
